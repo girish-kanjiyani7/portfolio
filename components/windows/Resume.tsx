@@ -110,7 +110,8 @@ const Section = ({ title, icon, children }: { title: string, icon: React.ReactNo
 );
 
 export function Resume() {
-  const resumePdfUrl = '/GK_back_draft.pdf';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const resumePdfUrl = `${basePath}/GK_back_draft.pdf`;
 
   return (
     <div className="h-full flex flex-col bg-gray-900/50 text-white">

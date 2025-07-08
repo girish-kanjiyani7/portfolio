@@ -21,6 +21,8 @@ export function MenuBar() {
     closeActiveWindow
   } = useWindowStore()
   const [time, setTime] = useState('')
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const resumePdfUrl = `${basePath}/GK_back_draft.pdf`;
 
   useEffect(() => {
     const updateClock = () => {
@@ -37,7 +39,7 @@ export function MenuBar() {
     return () => clearInterval(timerId)
   }, [])
 
-  const handleOpenResume = () => window.open('/GK_back_draft.pdf', '_blank')
+  const handleOpenResume = () => window.open(resumePdfUrl, '_blank')
   const handlePrint = () => window.print()
 
   return (
@@ -64,7 +66,7 @@ export function MenuBar() {
               <span>Open Resume in New Tab</span>
             </DropdownMenuItem>
             <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-              <a href="/GK_back_draft.pdf" download="Girish_Kanjiyani_Resume.pdf" className="flex items-center w-full">
+              <a href={resumePdfUrl} download="Girish_Kanjiyani_Resume.pdf" className="flex items-center w-full">
                 <Download className="mr-2 h-4 w-4" />
                 <span>Download Resume (PDF)</span>
               </a>
