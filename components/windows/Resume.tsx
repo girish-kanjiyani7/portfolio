@@ -1,45 +1,33 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download, Eye, Mail, Phone, Linkedin, Github, MapPin, Briefcase, Code, GraduationCap, Star } from 'lucide-react'
+import { Download, Eye, Mail, Phone, Linkedin, Github, MapPin, Briefcase, Code, GraduationCap, Star, Link } from 'lucide-react'
 
 const resumeData = {
   name: 'GIRISH KANJIYANI',
   contact: {
-    location: 'Syracuse, NY',
-    phone: '(+1) 315-374-1153',
+    phone: '(315)374-1153',
     email: 'girishfob5040@gmail.com',
     linkedin: 'https://www.linkedin.com/in/girish-kanjiyani/',
     github: 'https://github.com/girish-kanjiyani7'
   },
-  education: [
-    {
-      institution: 'Syracuse University',
-      location: 'Syracuse, NY',
-      degree: 'Master of Science in Computer Science',
-      period: 'Aug 2023 - May 2025',
-      details: [
-        'GPA: 3.8/4.0'
-      ]
-    }
-  ],
   skills: [
-    { category: 'Languages', items: 'Python, Java, C++, R, SQL, JavaScript, HTML/CSS' },
-    { category: 'Frameworks & Libraries', items: 'PyTorch, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, FastAPI, Django, Flask, React.js, Node.js' },
-    { category: 'Databases', items: 'PostgreSQL, MySQL, MongoDB, Firebase' },
-    { category: 'Developer Tools', items: 'Git, Docker, Kubernetes, Jenkins, Postman, Pytest, GitHub Actions' },
-    { category: 'Cloud & DevOps', items: 'AWS (EC2, S3, Lambda, RDS), Google Cloud Platform (GCP), CI/CD' }
+    { category: 'Languages', items: 'Python, JavaScript (ES6+), Java, C++, C, R' },
+    { category: 'Frameworks & Libraries', items: 'FastAPI, Django, Flask, React.js, Vue.js, Tailwind CSS, Semantic HTML, Modern CSS' },
+    { category: 'Databases', items: 'MySQL, MongoDB (NoSQL), DynamoDB, PostgreSQL' },
+    { category: 'Cloud & DevOps', items: 'AWS (Lambda, ECS, S3), Docker, GitHub Actions' },
+    { category: 'Software Engineering Practices', items: 'Object-oriented Programming, Design Patterns, TDD (Test-Driven Development), Agile/Scrum, SDLC.' }
   ],
   experience: [
     {
-      role: 'Software Development Engineer',
+      role: 'SDE',
       company: 'JMA Wireless',
       location: 'Syracuse, NY',
-      period: 'June 2024 - Present',
+      period: 'June 2024 -- May 2025',
       points: [
-        'Engineered a modular FastAPI service in Python to handle classification and transformation of 25K+ event feedback logs from 9 different categories.',
+        'Engineered a modular FastAPI service in Python to handle classification and transformation of 25K+ event feedback logs from 9 different categories, transforming raw inputs into structured data for sentiment classification.',
         'Built RESTful APIs and protected endpoints using FastAPI’s routing and dependency injection, powering internal dashboards used for analyzing sentiment data across 1M+ annual attendees.',
-        'Embedded a RoBERTa-based sentiment classification model into a Python service to analyze feedback logs and return structured outputs.',
+        'Embedded a RoBERTa-based sentiment classification model into a Python service to analyze feedback logs and return structured outputs for storage and dashboard visualization.',
         'Structured sentiment data using PostgreSQL with indexed lookups to support real-time analytics queries.',
         'Automated unit and integration tests using Pytest, and configured CI pipelines with GitHub Actions to ensure test coverage and deployment readiness.',
         'Partnered with product and frontend teams to define API contracts and enable smooth integration across systems.'
@@ -49,42 +37,58 @@ const resumeData = {
       role: 'Research Assistant, Data Engineering Lab',
       company: 'Syracuse University',
       location: 'Syracuse, NY',
-      period: 'Jan 2024 - Apr 2024',
+      period: 'January 2024 -- April 2024',
       points: [
-        'Designed scalable data ingestion and preprocessing pipelines using Python and R, transforming 2.1TB of genomic data into structured formats.',
+        'Designed scalable data ingestion and preprocessing pipelines using Python and R, transforming 2.1TB of genomic data into structured formats',
         'Constructed modular backend scripts for variant calling, and data validation, improving processing speed by 30%.',
-        'Discovered 2 novel genomic patterns, contributing to 20%+ improvement in research accuracy.',
-        'Delivered reproducible backend tooling for data pipelines shared across 3 interdisciplinary research teams.'
+        'Discovered 2 novel genomic patterns, contributing to 20%+ improvement in research accuracy',
+        'Delivered to reproducible backend tooling for data pipelines shared across 3 interdisciplinary research teams'
       ]
     },
     {
-      role: 'Software Development Engineer Intern',
+      role: 'SDE Intern',
       company: 'WaytoWeb Pvt Ltd.',
       location: 'Gujarat, India',
-      period: 'Apr 2022 - Jul 2023',
+      period: 'April 2022 -- July 2023',
       points: [
-        'Developed and maintained backend APIs for internal dashboards using Django and MySQL, implementing role-based access for multiple user groups.',
-        'Refactored ORM queries and introduced MySQL indexing, reducing API latency by over 500ms during peak usage.',
-        'Implemented backend features for refund approvals and stock reservations, integrated with frontend workflows.',
-        'Engaged in Agile ceremonies, contributing to user story breakdowns and task estimations across 6+ sprints.'
+        'Developed and maintained backend APIs for internal dashboards using Django and MySQL, implementing role-based access with Django’s built-in auth and group permission system for operations, finance, and admin users.',
+        'Refactored ORM queries and introduced MySQL indexing, reducing API latency by over 500ms during peak usage',
+        'Implemented backend features for refund approvals and stock reservations, integrated with frontend workflows via shared staging environments',
+        'Engaged in Agile ceremonies (sprint planning, standups) and contributed to user story breakdowns and task estimations across 6+ sprints.'
       ]
     }
   ],
   projects: [
     {
-      name: 'Customer Segmentation Analysis',
-      tech: 'Python, Pandas, Scikit-learn, Matplotlib, Jupyter',
-      description: 'Utilized clustering algorithms (K-Means, DBSCAN) to segment customers, leading to a 15% increase in targeted marketing campaign engagement.'
+      name: 'LeetHub-3.0 (Open-Source Contribution)',
+      link: 'https://github.com/girish-kanjiyani7/LeetHub-3.0',
+      points: [
+        'Created a timestamp-based filename versioning feature using JavaScript, Chrome Extension APIs, and GitHub OAuth2 integration, allowing users to save multiple accepted submissions per problem.',
+        'Collaborated with maintainer through 10+ review comments and 3 code iterations to ensure seamless upstream integration, improving reliability and daily workflow for 10,000+ active users.'
+      ]
     },
     {
-      name: 'Stock Price Prediction Model',
-      tech: 'Python, TensorFlow, Keras, Pandas, Yahoo Finance API',
-      description: 'Developed and trained an LSTM neural network to forecast stock prices, achieving over 90% accuracy on historical data using the Yahoo Finance API.'
+      name: 'Trending Media Analytics Platform',
+      link: 'https://movie-maxxing.vercel.app/',
+      points: [
+        'Assembled backend services using Appwrite and TMDB APIs to support real-time movie search and trending rankings, with search counts tracked to surface top 5 movies dynamically.'
+      ]
     },
     {
-      name: 'Healthcare Data Pipeline',
-      tech: 'Python, Apache Airflow, AWS S3, MongoDB, Docker',
-      description: 'Engineered an automated ETL pipeline using Apache Airflow to process and analyze patient data, ensuring data integrity for downstream analysis.'
+      name: 'Image Ingestion & Vision API Integration',
+      link: 'https://fanum-taxxing.up.railway.app/',
+      points: [
+        'Programmed a Flask backend for image ingestion and calorie estimation using Gemini Vision API, deployed on Railway with 99%+ observed uptime, and optimized for sub-3-second response times with async processing and structured responses.'
+      ]
+    }
+  ],
+  education: [
+    {
+      institution: 'Syracuse University',
+      location: 'Syracuse, NY',
+      degree: 'Master of Science in Computer Science',
+      period: 'Aug. 2023 -- May 2025',
+      details: []
     }
   ]
 };
@@ -131,32 +135,12 @@ export function Resume() {
         <header className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-wider text-white">{resumeData.name}</h1>
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mt-3 text-xs sm:text-sm text-white/80">
-            <span className="flex items-center"><MapPin className="w-4 h-4 mr-1.5 text-blue-400"/>{resumeData.contact.location}</span>
             <a href={`tel:${resumeData.contact.phone}`} className="flex items-center hover:text-blue-300"><Phone className="w-4 h-4 mr-1.5 text-blue-400"/>{resumeData.contact.phone}</a>
             <a href={`mailto:${resumeData.contact.email}`} className="flex items-center hover:text-blue-300"><Mail className="w-4 h-4 mr-1.5 text-blue-400"/>{resumeData.contact.email}</a>
             <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-300"><Linkedin className="w-4 h-4 mr-1.5 text-blue-400"/>LinkedIn</a>
             <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-300"><Github className="w-4 h-4 mr-1.5 text-blue-400"/>GitHub</a>
           </div>
         </header>
-
-        {/* Education */}
-        <Section title="Education" icon={<GraduationCap />}>
-          {resumeData.education.map((edu, i) => (
-            <div key={i} className="mb-4">
-              <div className="flex flex-col sm:flex-row justify-between">
-                <h3 className="text-md sm:text-lg font-semibold text-white">{edu.institution}</h3>
-                <p className="text-sm text-white/70">{edu.location}</p>
-              </div>
-              <div className="flex flex-col sm:flex-row justify-between text-sm text-white/90">
-                <p className="italic">{edu.degree}</p>
-                <p className="text-white/70">{edu.period}</p>
-              </div>
-              <ul className="mt-2 space-y-1 text-sm text-white/70 list-disc list-inside">
-                {edu.details.map((detail, j) => <li key={j}>{detail}</li>)}
-              </ul>
-            </div>
-          ))}
-        </Section>
 
         {/* Skills */}
         <Section title="Technical Skills" icon={<Star />}>
@@ -189,10 +173,39 @@ export function Resume() {
         {/* Projects */}
         <Section title="Projects" icon={<Code />}>
           {resumeData.projects.map((proj, i) => (
+            <div key={i} className="mb-5">
+              <h3 className="text-md sm:text-lg font-semibold text-white flex items-center gap-2">
+                {proj.name}
+                {proj.link && (
+                  <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
+                    <Link className="w-4 h-4" />
+                  </a>
+                )}
+              </h3>
+              <ul className="space-y-1.5 text-sm text-white/80 list-disc list-inside mt-2">
+                {proj.points.map((point, j) => <li key={j}>{point}</li>)}
+              </ul>
+            </div>
+          ))}
+        </Section>
+
+        {/* Education */}
+        <Section title="Education" icon={<GraduationCap />}>
+          {resumeData.education.map((edu, i) => (
             <div key={i} className="mb-4">
-              <h3 className="text-md sm:text-lg font-semibold text-white">{proj.name}</h3>
-              <p className="text-sm italic text-blue-300/80 mb-1">{proj.tech}</p>
-              <p className="text-sm text-white/80">{proj.description}</p>
+              <div className="flex flex-col sm:flex-row justify-between">
+                <h3 className="text-md sm:text-lg font-semibold text-white">{edu.institution}</h3>
+                <p className="text-sm text-white/70">{edu.location}</p>
+              </div>
+              <div className="flex flex-col sm:flex-row justify-between text-sm text-white/90">
+                <p className="italic">{edu.degree}</p>
+                <p className="text-white/70">{edu.period}</p>
+              </div>
+              {edu.details.length > 0 && (
+                <ul className="mt-2 space-y-1 text-sm text-white/70 list-disc list-inside">
+                  {edu.details.map((detail, j) => <li key={j}>{detail}</li>)}
+                </ul>
+              )}
             </div>
           ))}
         </Section>
