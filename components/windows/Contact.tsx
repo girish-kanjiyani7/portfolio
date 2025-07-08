@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Send, Mail, Phone, MapPin, Linkedin, Github, Loader2 } from 'lucide-react'
+import { Send, Mail, Phone, Linkedin, Github, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -87,16 +87,6 @@ export function Contact() {
             >
               <Phone className="w-5 h-5 text-green-400" />
               <span className="text-white/90 text-sm sm:text-base">(315) 374-1153</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg"
-            >
-              <MapPin className="w-5 h-5 text-red-400" />
-              <span className="text-white/90 text-sm sm:text-base">Dallas, TX</span>
             </motion.div>
           </div>
 
