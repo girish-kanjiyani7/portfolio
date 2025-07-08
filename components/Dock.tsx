@@ -5,48 +5,48 @@ import { useWindowStore } from '@/lib/store'
 
 interface DockItem {
   id: string
-  icon: string
+  iconName: string
   label: string
   action: () => void
 }
 
 export function Dock() {
-  const { openWindow, windows, toggleTheme } = useWindowStore()
+  const { openWindow, windows, toggleTheme, isDarkMode } = useWindowStore()
 
   const dockItems: DockItem[] = [
     {
       id: 'projects',
-      icon: '/icons/finder.png',
+      iconName: 'finder',
       label: 'Projects',
       action: () => openWindow('projects')
     },
     {
       id: 'about',
-      icon: '/icons/launchpad.png',
+      iconName: 'launchpad',
       label: 'About',
       action: () => openWindow('about')
     },
     {
       id: 'experience',
-      icon: '/icons/notes.png',
+      iconName: 'notes',
       label: 'Experience',
       action: () => openWindow('experience')
     },
     {
       id: 'resume',
-      icon: '/icons/preview.png',
+      iconName: 'preview',
       label: 'Resume',
       action: () => openWindow('resume')
     },
     {
       id: 'contact',
-      icon: '/icons/messages.png',
+      iconName: 'messages',
       label: 'Contact',
       action: () => openWindow('contact')
     },
     {
       id: 'settings',
-      icon: '/icons/settings.png',
+      iconName: 'settings',
       label: 'Settings',
       action: () => toggleTheme()
     }
@@ -64,6 +64,7 @@ export function Dock() {
           {dockItems.map((item) => {
             const window = windows.find(w => w.id === item.id);
             const isOpen = window?.isOpen || false;
+            const iconPath = `/icons/${item.iconName}_${isDarkMode ? 'dark' : 'light'}.png`;
             
             return (
               <motion.button
@@ -75,9 +76,15 @@ export function Dock() {
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
                 <img 
-                  src={item.icon} 
+                  src={iconPath} 
                   alt={item.label} 
                   className="w-full h-full"
+                  onError={(e) => {
+                    // Fallback to default icon if theme-specific one is not found
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; // prevent infinite loop
+                    target.src = `/icons/${item.iconName}.png`;
+                  }}
                 />
                 
                 {isOpen && (
