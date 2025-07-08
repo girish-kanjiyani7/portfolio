@@ -19,16 +19,8 @@ const resumeData = {
       degree: 'Master of Science in Computer Science',
       period: 'Aug 2023 - May 2025',
       details: [
-        'GPA: 3.8/4.0',
-        'Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Management, Machine Learning, Natural Language Processing, Cloud Computing, Computer Security.'
+        'GPA: 3.8/4.0'
       ]
-    },
-    {
-      institution: 'LDRP Institute of Technology and Research',
-      location: 'Gujarat, India',
-      degree: 'Bachelor of Engineering in Computer Engineering',
-      period: 'Aug 2019 - May 2023',
-      details: ['GPA: 3.9/4.0']
     }
   ],
   skills: [
