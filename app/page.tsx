@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 import { useWindowStore } from '@/lib/store'
-import { MenuBar } from '@/components/MenuBar'
 import { Dock } from '@/components/Dock'
 import { WindowWrapper } from '@/components/WindowWrapper'
 import { Background } from '@/components/Background'
@@ -10,6 +9,7 @@ import { Projects } from '@/components/windows/Projects'
 import { Experience } from '@/components/windows/Experience'
 import { Resume } from '@/components/windows/Resume'
 import { Contact } from '@/components/windows/Contact'
+import { About } from '@/components/windows/About'
 import { Toaster } from '@/components/ui/sonner'
 
 export default function Home() {
@@ -27,7 +27,6 @@ export default function Home() {
     <main className="relative w-screen h-screen overflow-hidden touch-manipulation">
       <Toaster />
       <Background />
-      <MenuBar />
       <Dock />
       
       {/* Windows */}
@@ -45,6 +44,10 @@ export default function Home() {
       
       <WindowWrapper windowId="contact">
         <Contact />
+      </WindowWrapper>
+
+      <WindowWrapper windowId="about">
+        <About />
       </WindowWrapper>
     </main>
   )

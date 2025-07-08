@@ -2,62 +2,53 @@
 
 import { motion } from 'framer-motion'
 import { useWindowStore } from '@/lib/store'
-import { 
-  Folder,
-  FileText,
-  Mail,
-  Briefcase,
-  MessageCircle,
-  Monitor,
-  Menu
-} from 'lucide-react'
 
 interface DockItem {
   id: string
-  icon: React.ReactNode
+  icon: string
   label: string
   action: () => void
 }
 
 export function Dock() {
-  const { openWindow, windows } = useWindowStore()
+  const { openWindow, windows, toggleTheme } = useWindowStore()
 
   const dockItems: DockItem[] = [
     {
       id: 'projects',
-      icon: <Folder />,
+      icon: '/icons/finder.png',
       label: 'Projects',
       action: () => openWindow('projects')
     },
     {
+      id: 'about',
+      icon: '/icons/launchpad.png',
+      label: 'About',
+      action: () => openWindow('about')
+    },
+    {
       id: 'experience',
-      icon: <Briefcase />,
+      icon: '/icons/notes.png',
       label: 'Experience',
       action: () => openWindow('experience')
     },
     {
       id: 'resume',
-      icon: <FileText />,
+      icon: '/icons/preview.png',
       label: 'Resume',
       action: () => openWindow('resume')
     },
     {
       id: 'contact',
-      icon: <Mail />,
+      icon: '/icons/mail.png',
       label: 'Contact',
       action: () => openWindow('contact')
     },
     {
-      id: 'messages',
-      icon: <MessageCircle />,
-      label: 'Messages',
-      action: () => {}
-    },
-    {
       id: 'settings',
-      icon: <Monitor />,
-      label: 'System Preferences',
-      action: () => {}
+      icon: '/icons/settings.png',
+      label: 'Settings',
+      action: () => toggleTheme()
     }
   ]
 
@@ -83,9 +74,11 @@ export function Dock() {
                 whileTap={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
-                <div className="text-white/90 w-7 h-7 sm:w-8 sm:h-8 transition-colors group-hover:text-white">
-                  {item.icon}
-                </div>
+                <img 
+                  src={item.icon} 
+                  alt={item.label} 
+                  className="w-full h-full"
+                />
                 
                 {isOpen && (
                   <motion.div
@@ -108,28 +101,6 @@ export function Dock() {
               </motion.button>
             )
           })}
-
-          <div className="h-10 sm:h-12 w-px bg-white/20 mx-1"></div>
-
-          <motion.button
-            className="relative flex flex-col items-center group w-12 h-12 sm:w-14 sm:h-14 justify-center"
-            whileHover={{ scale: 1.2, y: -8 }}
-            whileTap={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-          >
-            <div className="p-2 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors">
-              <Menu className="text-white/90 w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 0, y: 10 }}
-              whileHover={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2 }}
-              className="absolute -top-10 px-2 py-1 bg-black/80 text-white text-xs rounded-md backdrop-blur-sm"
-            >
-              Apps
-            </motion.div>
-          </motion.button>
         </div>
       </motion.div>
     </div>
