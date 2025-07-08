@@ -12,15 +12,18 @@ export function About() {
         className="max-w-2xl mx-auto"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
-          About Me
+          About This Portfolio
         </h2>
         
         <div className="space-y-4 text-white/80 text-sm sm:text-base leading-relaxed">
           <p>
-            I'm either writing code or chugging coffee, with bugs somehow finding me before I can fix them. As a software developer passionate about problem-solving, I've worked on projects ranging from machine learning models to improving user interfaces.
+            This portfolio is an interactive desktop environment built with Next.js, TypeScript, and Tailwind CSS. It's designed to be a creative and engaging way to showcase my projects and skills.
           </p>
           <p>
-            When I’m not coding in Python, C++, or JavaScript, I enjoy working on projects aimed at streamlining processes, like reducing order processing times or predicting real estate prices. I’m always eager to collaborate and build solutions that make a meaningful impact.
+            The windowing system is powered by <strong className="text-white">React-RND</strong>, allowing for draggable and resizable components. Animations are handled by <strong className="text-white">Framer Motion</strong>, and global state, like window positions and theme, is managed with <strong className="text-white">Zustand</strong>. The UI components are from the excellent <strong className="text-white">Shadcn/ui</strong> library.
+          </p>
+          <p>
+            The goal was to move beyond a traditional static site and create a memorable experience. Feel free to drag the windows around and explore!
           </p>
         </div>
       </motion.div>
