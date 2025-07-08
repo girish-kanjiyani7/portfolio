@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useWindowStore } from '@/lib/store'
-import { Sun, Moon, Download, Printer, User, XCircle, XSquare, ExternalLink } from 'lucide-react'
+import { Sun, Moon, Download, Printer, User, XCircle, XSquare, ExternalLink, Github, Linkedin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import {
   DropdownMenu,
@@ -104,6 +104,12 @@ export function MenuBar() {
       </div>
       
       <div className="flex items-center space-x-3 sm:space-x-4">
+        <a href="https://github.com/girish-kanjiyani7" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-full hover:bg-white/20 transition-colors duration-200 flex-shrink-0">
+          <Github className="w-4 h-4 text-white/90" />
+        </a>
+        <a href="https://www.linkedin.com/in/girish-kanjiyani/" target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-full hover:bg-white/20 transition-colors duration-200 flex-shrink-0">
+          <Linkedin className="w-4 h-4 text-white/90" />
+        </a>
         <button
           onClick={toggleTheme}
           className="p-1.5 rounded-full hover:bg-white/20 transition-colors duration-200 flex-shrink-0"
