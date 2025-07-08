@@ -28,37 +28,37 @@ export function Dock() {
   const dockItems: DockItem[] = [
     {
       id: 'projects',
-      icon: <Folder className="w-6 h-6" />,
+      icon: <Folder />,
       label: 'Projects',
       action: () => openWindow('projects')
     },
     {
       id: 'experience',
-      icon: <Briefcase className="w-6 h-6" />,
+      icon: <Briefcase />,
       label: 'Experience',
       action: () => openWindow('experience')
     },
     {
       id: 'resume',
-      icon: <FileText className="w-6 h-6" />,
+      icon: <FileText />,
       label: 'Resume',
       action: () => openWindow('resume')
     },
     {
       id: 'contact',
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail />,
       label: 'Contact',
       action: () => openWindow('contact')
     },
     {
       id: 'messages',
-      icon: <MessageCircle className="w-6 h-6" />,
+      icon: <MessageCircle />,
       label: 'Messages',
       action: () => {}
     },
     {
       id: 'settings',
-      icon: <Monitor className="w-6 h-6" />,
+      icon: <Monitor />,
       label: 'System Preferences',
       action: () => {}
     }
@@ -91,7 +91,7 @@ export function Dock() {
                   : 'bg-white/10 text-white/80 hover:bg-white/20'
                 }
               `}>
-                <div className="w-4 h-4 sm:w-6 sm:h-6">
+                <div className="w-5 h-5 sm:w-6 sm:h-6">
                   {item.icon}
                 </div>
               </div>

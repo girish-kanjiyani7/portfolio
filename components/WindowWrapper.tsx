@@ -35,7 +35,7 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
         style={{ zIndex: windowState.zIndex }}
-        className={`absolute ${isMobile ? 'inset-2' : ''}`}
+        className={`absolute ${isMobile ? 'inset-0' : ''}`}
       >
         <Rnd
           size={{ 
@@ -69,7 +69,7 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
           disableDragging={isMobile}
           enableResizing={!isMobile}
         >
-          <div className={`w-full h-full bg-black/40 backdrop-blur-xl ${isMobile ? 'rounded-none' : 'rounded-xl'} border border-white/20 overflow-hidden shadow-2xl`}>
+          <div className={`w-full h-full bg-black/40 backdrop-blur-xl ${isMobile ? 'rounded-none' : 'rounded-xl'} border border-white/20 overflow-hidden shadow-2xl flex flex-col`}>
             {/* Window Header */}
             <div className={`window-header flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-white/10 to-white/5 border-b border-white/10 ${isMobile ? 'cursor-default' : 'cursor-move'}`}>
               <div className="flex items-center space-x-3">
@@ -95,7 +95,7 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
             </div>
             
             {/* Window Content */}
-            <div className={`flex-1 overflow-hidden ${isMobile ? 'h-[calc(100%-3rem)]' : 'h-full'}`}>
+            <div className="flex-1 overflow-hidden">
               {children}
             </div>
           </div>
