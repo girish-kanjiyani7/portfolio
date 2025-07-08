@@ -40,7 +40,7 @@ export function Dock() {
     },
     {
       id: 'contact',
-      icon: '/icons/email.jpg',
+      icon: '/icons/messages.png',
       label: 'Contact',
       action: () => openWindow('contact')
     },
