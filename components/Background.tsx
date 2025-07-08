@@ -25,7 +25,7 @@ export function Background() {
             Hi, I'm Girish
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed px-4">
-            Building Data + Code for Impact
+            Building Intelligent Software
           </p>
         </motion.div>
       </div>
