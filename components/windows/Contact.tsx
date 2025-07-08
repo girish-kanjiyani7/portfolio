@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Send, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react'
+import { Send, Mail, Phone, MapPin, Linkedin, Github, Loader2 } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -11,11 +12,40 @@ export function Contact() {
     subject: '',
     message: ''
   })
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    setIsLoading(true)
+    
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        toast.success('Message sent!', {
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        })
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        toast.error('Failed to send message.', {
+          description: result.error || 'Please try again later.',
+        })
+      }
+    } catch (error) {
+      toast.error('An error occurred.', {
+        description: 'Please check your connection and try again.',
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -73,6 +103,8 @@ export function Contact() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <motion.a
               href="https://linkedin.com/in/girishkanjiyani"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center justify-center p-3 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors duration-200"
@@ -82,6 +114,8 @@ export function Contact() {
             </motion.a>
             <motion.a
               href="https://github.com/girishkanjiyani"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center justify-center p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
@@ -113,6 +147,7 @@ export function Contact() {
               className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors duration-200"
               placeholder="Your name"
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -129,6 +164,7 @@ export function Contact() {
               className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors duration-200"
               placeholder="your.email@example.com"
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -145,6 +181,7 @@ export function Contact() {
               className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors duration-200"
               placeholder="What's this about?"
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -161,6 +198,7 @@ export function Contact() {
               className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors duration-200 resize-none"
               placeholder="Tell me about your project or just say hello!"
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -168,10 +206,15 @@ export function Contact() {
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200"
+            className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200 disabled:bg-blue-500/50 disabled:cursor-not-allowed"
+            disabled={isLoading}
           >
-            <Send className="w-4 h-4" />
-            <span>Send Message</span>
+            {isLoading ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <Send className="w-4 h-4" />
+            )}
+            <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
           </motion.button>
         </motion.form>
       </div>

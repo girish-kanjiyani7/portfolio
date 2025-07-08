@@ -20,9 +20,9 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
     updateWindowSize 
   } = useWindowStore()
 
-  const window = windows.find(w => w.id === windowId)
+  const windowState = windows.find(w => w.id === windowId)
   
-  if (!window || !window.isOpen) return null
+  if (!windowState || !windowState.isOpen) return null
 
   // Check if mobile
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
@@ -34,17 +34,17 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        style={{ zIndex: window.zIndex }}
+        style={{ zIndex: windowState.zIndex }}
         className={`absolute ${isMobile ? 'inset-2' : ''}`}
       >
         <Rnd
           size={{ 
-            width: isMobile ? '100%' : window.size.width, 
-            height: isMobile ? '100%' : window.size.height 
+            width: isMobile ? '100%' : windowState.size.width, 
+            height: isMobile ? '100%' : windowState.size.height 
           }}
           position={{ 
-            x: isMobile ? 0 : window.position.x, 
-            y: isMobile ? 0 : window.position.y 
+            x: isMobile ? 0 : windowState.position.x, 
+            y: isMobile ? 0 : windowState.position.y 
           }}
           onDragStop={(e, d) => {
             if (!isMobile) {
@@ -64,7 +64,7 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
           minHeight={isMobile ? '100%' : 300}
           bounds="window"
           dragHandleClassName="window-header"
-          className={`${window.isMinimized ? 'hidden' : ''}`}
+          className={`${windowState.isMinimized ? 'hidden' : ''}`}
           onMouseDown={() => focusWindow(windowId)}
           disableDragging={isMobile}
           enableResizing={!isMobile}
@@ -90,7 +90,7 @@ export function WindowWrapper({ windowId, children }: WindowWrapperProps) {
                     <Plus className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-green-900 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </button>
                 </div>
-                <span className="text-white/90 font-medium text-xs sm:text-sm">{window.title}</span>
+                <span className="text-white/90 font-medium text-xs sm:text-sm">{windowState.title}</span>
               </div>
             </div>
             

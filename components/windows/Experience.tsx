@@ -9,42 +9,29 @@ const experiences = [
     role: 'Data Scientist',
     company: 'Tech Solutions Inc.',
     location: 'Dallas, TX',
-    period: '2024 - Present',
-    description: 'Developing machine learning models for predictive analytics and building data pipelines to process large-scale datasets. Leading data-driven decision making initiatives.',
+    period: 'Jan 2024 - Present',
+    description: 'Led the development of predictive models for sales forecasting, improving accuracy by 35%. Designed and implemented scalable ETL pipelines using AWS to process over 10 million records daily.',
     achievements: [
-      'Built predictive models improving business forecasting accuracy by 35%',
-      'Designed and implemented ETL pipelines processing 10M+ records daily',
-      'Created interactive dashboards reducing reporting time by 50%'
+      'Improved sales forecasting accuracy by 35% with predictive models.',
+      'Built ETL pipelines processing 10M+ daily records using AWS services.',
+      'Created interactive Tableau dashboards, reducing reporting time by 50%.',
+      'Collaborated with cross-functional teams to deliver data-driven recommendations.'
     ],
-    tech: ['Python', 'SQL', 'TensorFlow', 'AWS', 'Tableau', 'Apache Spark']
+    tech: ['Python', 'SQL', 'AWS', 'Tableau', 'ETL', 'Predictive Modeling']
   },
   {
     id: 2,
     role: 'Software Engineer Intern',
     company: 'DataFlow Solutions',
     location: 'Remote',
-    period: '2023 - 2024',
-    description: 'Developed web applications for data visualization and analytics. Collaborated with senior engineers to implement machine learning features and optimize database performance.',
+    period: 'May 2023 - Aug 2023',
+    description: 'Developed a real-time data monitoring dashboard using React and FastAPI. Optimized database queries and contributed to automated testing suites.',
     achievements: [
-      'Developed React-based dashboard for real-time data monitoring',
-      'Optimized database queries reducing response time by 40%',
-      'Implemented automated testing increasing code coverage to 90%'
+      'Developed a real-time data monitoring dashboard with React and FastAPI.',
+      'Optimized PostgreSQL queries, reducing API response times by 40%.',
+      'Increased code coverage to 90% by implementing Pytest testing suites.'
     ],
-    tech: ['React', 'Python', 'PostgreSQL', 'Docker', 'FastAPI']
-  },
-  {
-    id: 3,
-    role: 'Research Assistant',
-    company: 'University of Texas at Dallas',
-    location: 'Dallas, TX',
-    period: '2022 - 2024',
-    description: 'Conducted research in machine learning and data mining. Assisted in developing algorithms for pattern recognition and published findings in academic conferences.',
-    achievements: [
-      'Co-authored 2 research papers on machine learning applications',
-      'Developed novel algorithms for time series forecasting',
-      'Presented research findings at 3 academic conferences'
-    ],
-    tech: ['Python', 'R', 'Scikit-learn', 'Jupyter', 'MATLAB']
+    tech: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'Docker', 'Pytest']
   }
 ]
 

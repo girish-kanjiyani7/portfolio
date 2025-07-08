@@ -6,39 +6,30 @@ import { ExternalLink, Github } from 'lucide-react'
 const projects = [
   {
     id: 1,
-    title: 'Predictive Analytics Dashboard',
-    description: 'Machine learning platform for business forecasting with real-time data visualization and predictive modeling capabilities.',
-    tech: ['Python', 'Streamlit', 'Scikit-learn', 'PostgreSQL'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
+    title: 'Customer Segmentation Analysis',
+    description: 'Utilized clustering algorithms (K-Means, DBSCAN) to segment customers, leading to a 15% increase in targeted marketing campaign engagement.',
+    tech: ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Jupyter'],
+    github: 'https://github.com/girishkanjiyani',
+    demo: '',
+    image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 2,
-    title: 'Customer Segmentation Analysis',
-    description: 'Data science project using clustering algorithms to segment customers and optimize marketing strategies.',
-    tech: ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400'
+    title: 'Stock Price Prediction Model',
+    description: 'Developed and trained an LSTM neural network to forecast stock prices, achieving over 90% accuracy on historical data using the Yahoo Finance API.',
+    tech: ['Python', 'TensorFlow', 'Keras', 'Pandas', 'Yahoo Finance API'],
+    github: 'https://github.com/girishkanjiyani',
+    demo: '',
+    image: 'https://images.pexels.com/photos/7567569/pexels-photo-7567569.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 3,
-    title: 'Stock Price Prediction Model',
-    description: 'Time series forecasting model using LSTM neural networks to predict stock prices with high accuracy.',
-    tech: ['Python', 'TensorFlow', 'Keras', 'Yahoo Finance API'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg?auto=compress&cs=tinysrgb&w=400'
-  },
-  {
-    id: 4,
     title: 'Healthcare Data Pipeline',
-    description: 'ETL pipeline for processing and analyzing healthcare data with automated reporting and anomaly detection.',
-    tech: ['Python', 'Apache Airflow', 'AWS', 'MongoDB'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=400'
+    description: 'Engineered an automated ETL pipeline using Apache Airflow to process and analyze patient data, ensuring data integrity for downstream analysis.',
+    tech: ['Python', 'Apache Airflow', 'AWS S3', 'MongoDB', 'Docker'],
+    github: 'https://github.com/girishkanjiyani',
+    demo: '',
+    image: 'https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
 
@@ -79,18 +70,24 @@ export function Projects() {
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <a
                 href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors duration-200"
               >
                 <Github className="w-4 h-4 text-white/80" />
                 <span className="text-white/80 text-sm">Code</span>
               </a>
-              <a
-                href={project.demo}
-                className="flex items-center justify-center space-x-2 px-3 py-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors duration-200"
-              >
-                <ExternalLink className="w-4 h-4 text-blue-300" />
-                <span className="text-blue-300 text-sm">Demo</span>
-              </a>
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-2 px-3 py-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors duration-200"
+                >
+                  <ExternalLink className="w-4 h-4 text-blue-300" />
+                  <span className="text-blue-300 text-sm">Demo</span>
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
