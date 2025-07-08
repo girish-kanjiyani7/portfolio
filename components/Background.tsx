@@ -7,9 +7,9 @@ export function Background() {
   const { isDarkMode } = useWindowStore()
 
   return (
-    <div className={`fixed inset-0 transition-all duration-1000 ${
+    <div className={`fixed inset-0 transition-colors duration-1000 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900' 
+        ? 'bg-gradient-radial from-[#1a2035] at-center to-[#0d1117]' 
         : 'bg-gradient-to-br from-blue-400 via-purple-500 to-purple-600'
     }`}>
 
@@ -22,10 +22,10 @@ export function Background() {
           className="text-center"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-6 tracking-tight px-4">
-            Hi, I'm Girish Kanjiyani
+            Hi, I'm Girish
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed px-4">
-            Data Scientist & Software Engineer
+            Building Data + Code for Impact
           </p>
         </motion.div>
       </div>
@@ -33,7 +33,7 @@ export function Background() {
       {/* Gradient overlay */}
       <div className={`absolute inset-0 ${
         isDarkMode 
-          ? 'bg-gradient-to-t from-black/50 via-transparent to-transparent' 
+          ? 'bg-gradient-to-t from-black/20 via-transparent to-transparent' 
           : 'bg-gradient-to-t from-white/20 via-transparent to-transparent'
       }`} />
     </div>
