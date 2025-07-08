@@ -12,6 +12,7 @@ interface DockItem {
 
 export function Dock() {
   const { openWindow, windows, toggleTheme, isDarkMode } = useWindowStore()
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const dockItems: DockItem[] = [
     {
@@ -64,7 +65,7 @@ export function Dock() {
           {dockItems.map((item) => {
             const window = windows.find(w => w.id === item.id);
             const isOpen = window?.isOpen || false;
-            const iconPath = `/icons/${item.iconName}_${isDarkMode ? 'dark' : 'light'}.png`;
+            const iconPath = `${basePath}/icons/${item.iconName}_${isDarkMode ? 'dark' : 'light'}.png`;
             
             return (
               <motion.button
@@ -83,7 +84,7 @@ export function Dock() {
                     // Fallback to default icon if theme-specific one is not found
                     const target = e.target as HTMLImageElement;
                     target.onerror = null; // prevent infinite loop
-                    target.src = `/icons/${item.iconName}.png`;
+                    target.src = `${basePath}/icons/${item.iconName}.png`;
                   }}
                 />
                 
