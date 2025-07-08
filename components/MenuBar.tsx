@@ -14,6 +14,7 @@ import {
 
 export function MenuBar() {
   const { 
+    openWindow,
     isDarkMode, 
     toggleTheme,
     closeAllWindows,
@@ -91,11 +92,15 @@ export function MenuBar() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        {/* Placeholder menu items for authentic look */}
-        <span className="text-white/70 text-sm font-medium px-2 py-1 rounded whitespace-nowrap cursor-default hidden sm:inline">Edit</span>
-        <span className="text-white/70 text-sm font-medium px-2 py-1 rounded whitespace-nowrap cursor-default hidden sm:inline">View</span>
-        <span className="text-white/70 text-sm font-medium px-2 py-1 rounded whitespace-nowrap cursor-default hidden md:inline">Window</span>
-        <span className="text-white/70 text-sm font-medium px-2 py-1 rounded whitespace-nowrap cursor-default hidden md:inline">Help</span>
+        <button onClick={() => openWindow('projects')} className="text-white/90 hover:text-white text-sm font-medium transition-colors duration-200 hover:bg-white/10 px-2 py-1 rounded whitespace-nowrap outline-none">
+          Projects
+        </button>
+        <button onClick={() => openWindow('resume')} className="text-white/90 hover:text-white text-sm font-medium transition-colors duration-200 hover:bg-white/10 px-2 py-1 rounded whitespace-nowrap outline-none">
+          Resume
+        </button>
+        <button onClick={() => openWindow('about')} className="text-white/90 hover:text-white text-sm font-medium transition-colors duration-200 hover:bg-white/10 px-2 py-1 rounded whitespace-nowrap outline-none">
+          About
+        </button>
       </div>
       
       <div className="flex items-center space-x-3 sm:space-x-4">
