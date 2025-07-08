@@ -6,32 +6,50 @@ import { Calendar, MapPin } from 'lucide-react'
 const experiences = [
   {
     id: 1,
-    role: 'Data Scientist',
-    company: 'Tech Solutions Inc.',
-    location: 'Dallas, TX',
-    period: 'Jan 2024 - Present',
-    description: 'Led the development of predictive models for sales forecasting, improving accuracy by 35%. Designed and implemented scalable ETL pipelines using AWS to process over 10 million records daily.',
+    role: 'SDE',
+    company: 'JMA Wireless',
+    location: 'Syracuse, NY',
+    period: 'June 2024 - Present',
+    description: 'Engineered a modular FastAPI service to classify and transform over 25K event feedback logs. Built RESTful APIs to power internal dashboards for analyzing sentiment data across more than 1M annual attendees.',
     achievements: [
-      'Improved sales forecasting accuracy by 35% with predictive models.',
-      'Built ETL pipelines processing 10M+ daily records using AWS services.',
-      'Created interactive Tableau dashboards, reducing reporting time by 50%.',
-      'Collaborated with cross-functional teams to deliver data-driven recommendations.'
+      'Engineered a modular FastAPI service in Python to handle classification and transformation of 25K+ event feedback logs from 9 different categories.',
+      'Built RESTful APIs and protected endpoints using FastAPI’s routing and dependency injection, powering internal dashboards used for analyzing sentiment data across 1M+ annual attendees.',
+      'Embedded a RoBERTa-based sentiment classification model into a Python service to analyze feedback logs and return structured outputs.',
+      'Structured sentiment data using PostgreSQL with indexed lookups to support real-time analytics queries.',
+      'Automated unit and integration tests using Pytest, and configured CI pipelines with GitHub Actions to ensure test coverage and deployment readiness.',
+      'Partnered with product and frontend teams to define API contracts and enable smooth integration across systems.'
     ],
-    tech: ['Python', 'SQL', 'AWS', 'Tableau', 'ETL', 'Predictive Modeling']
+    tech: ['Python', 'FastAPI', 'PostgreSQL', 'RoBERTa', 'Pytest', 'GitHub Actions', 'Docker', 'AWS']
   },
   {
     id: 2,
-    role: 'Software Engineer Intern',
-    company: 'DataFlow Solutions',
-    location: 'Remote',
-    period: 'May 2023 - Aug 2023',
-    description: 'Developed a real-time data monitoring dashboard using React and FastAPI. Optimized database queries and contributed to automated testing suites.',
+    role: 'Research Assistant, Data Engineering Lab',
+    company: 'Syracuse University',
+    location: 'Syracuse, NY',
+    period: 'Jan 2024 - Apr 2024',
+    description: 'Designed and implemented scalable data ingestion and preprocessing pipelines for 2.1TB of genomic data. Discovered novel genomic patterns, improving research accuracy by over 20%.',
     achievements: [
-      'Developed a real-time data monitoring dashboard with React and FastAPI.',
-      'Optimized PostgreSQL queries, reducing API response times by 40%.',
-      'Increased code coverage to 90% by implementing Pytest testing suites.'
+      'Designed scalable data ingestion and preprocessing pipelines using Python and R, transforming 2.1TB of genomic data into structured formats.',
+      'Constructed modular backend scripts for variant calling, and data validation, improving processing speed by 30%.',
+      'Discovered 2 novel genomic patterns, contributing to 20%+ improvement in research accuracy.',
+      'Delivered reproducible backend tooling for data pipelines shared across 3 interdisciplinary research teams.'
     ],
-    tech: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'Docker', 'Pytest']
+    tech: ['Python', 'R', 'Data Pipelines', 'Genomic Data', 'Data Validation']
+  },
+  {
+    id: 3,
+    role: 'SDE Intern',
+    company: 'WaytoWeb Pvt Ltd.',
+    location: 'Gujarat, India',
+    period: 'Apr 2022 - Jul 2023',
+    description: 'Developed and maintained backend APIs for internal dashboards using Django and MySQL. Optimized database performance by refactoring ORM queries and introducing indexing, reducing API latency by over 500ms.',
+    achievements: [
+      'Developed and maintained backend APIs for internal dashboards using Django and MySQL, implementing role-based access for multiple user groups.',
+      'Refactored ORM queries and introduced MySQL indexing, reducing API latency by over 500ms during peak usage.',
+      'Implemented backend features for refund approvals and stock reservations, integrated with frontend workflows.',
+      'Engaged in Agile ceremonies, contributing to user story breakdowns and task estimations across 6+ sprints.'
+    ],
+    tech: ['Python', 'Django', 'MySQL', 'REST APIs', 'Agile', 'Scrum']
   }
 ]
 
