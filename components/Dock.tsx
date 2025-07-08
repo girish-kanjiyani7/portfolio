@@ -89,15 +89,11 @@ export function Dock() {
                   />
                 )}
                 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 0, y: 10 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute -top-10 px-2 py-1 bg-black/80 text-white text-xs rounded-md backdrop-blur-sm"
+                <div
+                  className="absolute -top-10 px-2 py-1 bg-black/80 text-white text-xs rounded-md backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                 >
                   {item.label}
-                </motion.div>
+                </div>
               </motion.button>
             )
           })}
