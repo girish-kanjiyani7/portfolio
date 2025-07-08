@@ -23,7 +23,15 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error('Resend API Error:', error);
-      return NextResponse.json({ error: 'Error sending email' }, { status: 500 });
+      
+      let userErrorMessage = 'An error occurred while sending the email.';
+      if (error.name === 'missing_api_key' || error.message.toLowerCase().includes('api key')) {
+        userErrorMessage = 'Invalid or missing Resend API Key. Please check your .env.local file and restart the application.';
+      } else if (error.name === 'validation_error' && error.message.toLowerCase().includes('verified')) {
+        userErrorMessage = 'The "from" email address is not verified. Please use a verified domain or the default "onboarding@resend.dev".';
+      }
+
+      return NextResponse.json({ error: userErrorMessage }, { status: 500 });
     }
 
     return NextResponse.json({ message: 'Email sent successfully!', data });
