@@ -30,6 +30,33 @@ const projects = [
     github: '',
     demo: 'https://fanum-taxxing.up.railway.app/',
     image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400'
+  },
+  {
+    id: 4,
+    title: 'Gomuku-AI',
+    description: 'Engineered a custom neural network with a 6-layer CNN architecture, achieving 84% accuracy. Achieved a 75%+ win rate against baseline AI through adaptive strategy and predictive analysis.',
+    tech: ['Python', 'PyTorch', 'CNN', 'Game AI'],
+    github: 'https://github.com/girish-kanjiyani7/Gomuku-AI',
+    demo: '',
+    image: 'https://images.pexels.com/photos/277124/pexels-photo-277124.jpeg?auto=compress&cs=tinysrgb&w=400'
+  },
+  {
+    id: 5,
+    title: 'YouTube-Focus Mode',
+    description: 'Developed a Chrome extension to eliminate distractions on YouTube, reducing distracting elements by over 90% and script execution overhead by 40% for a seamless user experience.',
+    tech: ['JavaScript', 'Chrome Extension', 'DOM', 'Productivity'],
+    github: 'https://github.com/girish-kanjiyani7/youtube-focus-mode',
+    demo: '',
+    image: 'https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=400'
+  },
+  {
+    id: 6,
+    title: 'Misinformation Detection on Social Media',
+    description: 'Constructed an end-to-end misinformation detection pipeline using NLP and social network analysis on 134K tweets. Mapped misinformation diffusion with NetworkX to uncover echo chambers.',
+    tech: ['Python', 'NLP', 'NetworkX', 'Scikit-learn', 'Data Science'],
+    github: 'https://github.com/girish-kanjiyani7/social-media-misinformation',
+    demo: '',
+    image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
 
