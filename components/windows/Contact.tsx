@@ -76,7 +76,7 @@ export function Contact() {
               className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg"
             >
               <Mail className="w-5 h-5 text-blue-400" />
-              <span className="text-white/90 text-sm sm:text-base break-all">girish.kanjiyani@gmail.com</span>
+              <span className="text-white/90 text-sm sm:text-base break-all">girishfob5040@gmail.com</span>
             </motion.div>
 
             <motion.div
@@ -86,7 +86,7 @@ export function Contact() {
               className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg"
             >
               <Phone className="w-5 h-5 text-green-400" />
-              <span className="text-white/90 text-sm sm:text-base">+1 (469) 667-9185</span>
+              <span className="text-white/90 text-sm sm:text-base">(315) 374-1153</span>
             </motion.div>
 
             <motion.div
@@ -102,7 +102,7 @@ export function Contact() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <motion.a
-              href="https://linkedin.com/in/girishkanjiyani"
+              href="https://www.linkedin.com/in/girish-kanjiyani/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -113,7 +113,7 @@ export function Contact() {
               <span className="ml-2 text-blue-400 sm:hidden">LinkedIn</span>
             </motion.a>
             <motion.a
-              href="https://github.com/girishkanjiyani"
+              href="https://github.com/girish-kanjiyani7"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
