@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { useWindowStore } from '@/lib/store'
 import { Dock } from '@/components/Dock'
+import { MenuBar } from '@/components/MenuBar'
 import { WindowWrapper } from '@/components/WindowWrapper'
 import { Background } from '@/components/Background'
 import { Projects } from '@/components/windows/Projects'
@@ -27,6 +28,7 @@ export default function Home() {
     <main className="relative w-screen h-screen overflow-hidden touch-manipulation">
       <Toaster />
       <Background />
+      <MenuBar />
       <Dock />
       
       {/* Windows */}

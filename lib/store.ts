@@ -22,6 +22,8 @@ interface WindowStore {
   updateWindowSize: (id: string, size: { width: number; height: number }) => void
   toggleTheme: () => void
   initializeWindows: () => void
+  closeAllWindows: () => void
+  closeActiveWindow: () => void
 }
 
 const defaultWindows: Omit<WindowState, 'zIndex'>[] = [
@@ -143,5 +145,23 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
 
   toggleTheme: () => {
     set(state => ({ isDarkMode: !state.isDarkMode }))
+  },
+
+  closeAllWindows: () => {
+    set(state => ({
+      windows: state.windows.map(window => ({ ...window, isOpen: false }))
+    }))
+  },
+
+  closeActiveWindow: () => {
+    const { windows, closeWindow } = get()
+    const openWindows = windows.filter(w => w.isOpen && !w.isMinimized)
+    if (openWindows.length === 0) return
+  
+    const activeWindow = openWindows.reduce((prev, current) => 
+      (prev.zIndex > current.zIndex) ? prev : current
+    )
+    
+    closeWindow(activeWindow.id)
   },
 }))
