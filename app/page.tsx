@@ -10,6 +10,7 @@ import { Projects } from '@/components/windows/Projects'
 import { Experience } from '@/components/windows/Experience'
 import { Resume } from '@/components/windows/Resume'
 import { Contact } from '@/components/windows/Contact'
+import { Toaster } from '@/components/ui/sonner'
 
 export default function Home() {
   const { initializeWindows, isDarkMode } = useWindowStore()
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <main className="relative w-screen h-screen overflow-hidden touch-manipulation">
+      <Toaster />
       <Background />
       <MenuBar />
       <Dock />
