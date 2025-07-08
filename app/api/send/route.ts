@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { ContactEmail } from '@/components/emails/ContactEmail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const myEmail = 'girishfob5040@gmail.com';
+const myEmail = 'girish.kanjiyani5040@gmail.com';
 
 export async function POST(request: Request) {
   try {
@@ -29,6 +29,8 @@ export async function POST(request: Request) {
         userErrorMessage = 'Invalid or missing Resend API Key. Please check your .env.local file and restart the application.';
       } else if (error.name === 'validation_error' && error.message.toLowerCase().includes('verified')) {
         userErrorMessage = 'The "from" email address is not verified. Please use a verified domain or the default "onboarding@resend.dev".';
+      } else if (error.message.includes('testing emails')) {
+        userErrorMessage = 'Resend validation error: You can only send test emails to your own verified address.';
       }
 
       return NextResponse.json({ error: userErrorMessage }, { status: 500 });
