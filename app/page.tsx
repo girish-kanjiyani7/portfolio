@@ -1,56 +1,29 @@
-'use client'
-
-import { useEffect } from 'react'
-import { useWindowStore } from '@/lib/store'
-import { Dock } from '@/components/Dock'
-import { MenuBar } from '@/components/MenuBar'
-import { WindowWrapper } from '@/components/WindowWrapper'
-import { Background } from '@/components/Background'
-import { Projects } from '@/components/windows/Projects'
-import { Experience } from '@/components/windows/Experience'
-import { Resume } from '@/components/windows/Resume'
-import { Contact } from '@/components/windows/Contact'
-import { About } from '@/components/windows/About'
-import { Toaster } from '@/components/ui/sonner'
+import { SiteNav } from '@/components/SiteNav'
+import { Hero } from '@/components/sections/Hero'
+import { Impact } from '@/components/sections/Impact'
+import { Experience } from '@/components/sections/Experience'
+import { Projects } from '@/components/sections/Projects'
+import { Skills } from '@/components/sections/Skills'
+import { EducationActivities } from '@/components/sections/EducationActivities'
+import { Contact } from '@/components/sections/Contact'
+import { CONTACT } from '@/lib/resume-data'
 
 export default function Home() {
-  const { initializeWindows, isDarkMode } = useWindowStore()
-
-  useEffect(() => {
-    initializeWindows()
-  }, [initializeWindows])
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDarkMode)
-  }, [isDarkMode])
-
   return (
-    <main className="relative w-screen h-screen overflow-hidden touch-manipulation">
-      <Toaster />
-      <Background />
-      <MenuBar />
-      <Dock />
-      
-      {/* Windows */}
-      <WindowWrapper windowId="projects">
-        <Projects />
-      </WindowWrapper>
-      
-      <WindowWrapper windowId="experience">
+    <>
+      <SiteNav />
+      <main>
+        <Hero />
+        <Impact />
         <Experience />
-      </WindowWrapper>
-      
-      <WindowWrapper windowId="resume">
-        <Resume />
-      </WindowWrapper>
-      
-      <WindowWrapper windowId="contact">
+        <Projects />
+        <Skills />
+        <EducationActivities />
         <Contact />
-      </WindowWrapper>
-
-      <WindowWrapper windowId="about">
-        <About />
-      </WindowWrapper>
-    </main>
+      </main>
+      <footer className="border-t border-border py-8 text-center font-mono text-xs text-muted-foreground">
+        {CONTACT.name}
+      </footer>
+    </>
   )
 }
