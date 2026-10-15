@@ -1,22 +1,49 @@
 import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
+import { CONTACT, EXPERIENCE } from '@/lib/resume-data'
 
-const inter = Inter({ subsets: ['latin'] })
+const sans = Geist({ subsets: ['latin'], variable: '--font-sans' })
+const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' })
+const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', variable: '--font-serif' })
+
+const CURRENT_ROLE = EXPERIENCE[0]
+const TITLE = `${CONTACT.name} | ${CURRENT_ROLE.title}`
+const DESCRIPTION = `${CURRENT_ROLE.title} at ${CURRENT_ROLE.company}. Test automation, backend performance and AI-assisted engineering.`
 
 export const metadata: Metadata = {
-  title: 'Girish Kanjiyani - Portfolio',
-  description: 'Data Scientist & Software Engineer. Building data-driven solutions for impact.',
+  metadataBase: new URL(CONTACT.site),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: CONTACT.site,
+    siteName: CONTACT.name,
+    type: 'website',
+  },
+  twitter: { card: 'summary', title: TITLE, description: DESCRIPTION },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f9f8f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#121110' },
+  ],
+}
+
+// Follows the OS color scheme (and live changes); runs before paint to avoid a flash.
+const THEME_SCRIPT = `(function(){var m=window.matchMedia('(prefers-color-scheme: dark)');var a=function(){document.documentElement.classList.toggle('dark',m.matches)};a();m.addEventListener('change',a)})()`
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
+      <body className={`${sans.variable} ${mono.variable} ${serif.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
   )
 }
