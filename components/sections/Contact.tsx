@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { EmailMeButton } from '@/components/EmailMeButton'
+import { GmailComposeButton } from '@/components/GmailComposeButton'
 import { CopyEmailButton } from '@/components/CopyEmailButton'
 import { SectionShell } from '@/components/SectionShell'
 import { CONTACT } from '@/lib/resume-data'
@@ -17,6 +18,7 @@ export function Contact() {
           cannot run API routes, so mailto + copy is used for now. */}
       <div className="mt-8 flex flex-wrap gap-3">
         <EmailMeButton email={CONTACT.email} />
+        <GmailComposeButton email={CONTACT.email} />
         <CopyEmailButton email={CONTACT.email} />
         <Button asChild size="lg" variant="outline" className="px-6">
           <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
