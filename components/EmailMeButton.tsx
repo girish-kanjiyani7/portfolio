@@ -6,7 +6,7 @@ import { useCopyFeedback, type CopyState } from '@/hooks/useCopyFeedback'
 const LABELS: Record<CopyState, string> = {
   idle: 'Email me',
   copied: 'Email copied',
-  failed: 'Email me',
+  failed: 'Copy failed',
 }
 
 interface EmailMeButtonProps {
