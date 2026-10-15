@@ -32,8 +32,8 @@ export const viewport: Viewport = {
   ],
 }
 
-// Follows the OS color scheme; runs before paint to avoid a flash.
-const THEME_SCRIPT = `document.documentElement.classList.toggle('dark',window.matchMedia('(prefers-color-scheme: dark)').matches)`
+// Follows the OS color scheme (and live changes); runs before paint to avoid a flash.
+const THEME_SCRIPT = `(function(){var m=window.matchMedia('(prefers-color-scheme: dark)');var a=function(){document.documentElement.classList.toggle('dark',m.matches)};a();m.addEventListener('change',a)})()`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

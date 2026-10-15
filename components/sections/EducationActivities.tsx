@@ -26,7 +26,7 @@ export function EducationActivities() {
                 <p className="mb-3 text-muted-foreground">
                   {a.role} · {a.location}
                 </p>
-                <ul className="space-y-3 text-[15px] leading-relaxed">
+                <ul className="list-disc space-y-3 pl-5 text-[15px] leading-relaxed marker:text-muted-foreground">
                   {a.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}

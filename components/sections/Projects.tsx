@@ -18,7 +18,7 @@ function ProjectItem({ project }: { readonly project: Project }) {
         )}
       </div>
       <p className="text-sm text-muted-foreground">{project.kind}</p>
-      <ul className="mt-4 space-y-2 text-[15px] leading-relaxed">
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:text-muted-foreground">
         {project.bullets.map((b) => (
           <li key={b}>{b}</li>
         ))}

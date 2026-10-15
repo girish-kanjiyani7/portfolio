@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 
 type CopyState = 'idle' | 'copied' | 'failed'
@@ -18,6 +18,9 @@ interface CopyEmailButtonProps {
 
 export function CopyEmailButton({ email }: CopyEmailButtonProps) {
   const [state, setState] = useState<CopyState>('idle')
+  const resetTimer = useRef<number | undefined>(undefined)
+
+  useEffect(() => () => window.clearTimeout(resetTimer.current), [])
 
   async function handleCopy() {
     try {
@@ -26,7 +29,8 @@ export function CopyEmailButton({ email }: CopyEmailButtonProps) {
     } catch {
       setState('failed')
     }
-    window.setTimeout(() => setState('idle'), RESET_DELAY_MS)
+    window.clearTimeout(resetTimer.current)
+    resetTimer.current = window.setTimeout(() => setState('idle'), RESET_DELAY_MS)
   }
 
   return (
