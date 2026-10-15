@@ -177,6 +177,7 @@ export const PROJECTS: readonly Project[] = [
   {
     name: 'LeetHub-3.0',
     kind: 'Chrome extension',
+    href: 'https://github.com/girish-kanjiyani7/LeetHub-3.0/tree/main',
     stack: ['JavaScript', 'Chrome Extension APIs'],
     isOpenSource: true,
     bullets: [
