@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { EmailMeButton } from '@/components/EmailMeButton'
 import { CONTACT, EXPERIENCE } from '@/lib/resume-data'
 
 const CURRENT_ROLE = EXPERIENCE[0]
@@ -25,9 +26,7 @@ export function Hero() {
         className="rise mt-9 flex flex-wrap gap-3"
         style={{ '--i': 3 } as React.CSSProperties}
       >
-        <Button asChild size="lg" className="px-6">
-          <a href={`mailto:${CONTACT.email}`}>Email me</a>
-        </Button>
+        <EmailMeButton email={CONTACT.email} />
         <Button asChild size="lg" variant="outline" className="px-6">
           <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
