@@ -56,6 +56,9 @@ export const CONTACT: ContactLinks = {
   site: 'https://girish-kanjiyani7.github.io/portfolio/',
 }
 
+/** Resume PDF in /public; the base path is set at build time for GitHub Pages. */
+export const RESUME_PDF_HREF = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/Girish_Kanjiyani_Resume.pdf`
+
 export const EXPERIENCE: readonly Role[] = [
   {
     company: 'GE Appliances',

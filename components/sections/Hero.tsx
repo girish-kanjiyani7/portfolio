@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { EmailMeButton } from '@/components/EmailMeButton'
-import { CONTACT, EXPERIENCE } from '@/lib/resume-data'
+import { CONTACT, EXPERIENCE, RESUME_PDF_HREF } from '@/lib/resume-data'
 
 const CURRENT_ROLE = EXPERIENCE[0]
 
@@ -37,10 +37,11 @@ export function Hero() {
             GitHub
           </a>
         </Button>
-        {/* TODO(resume): resume PDF is not ready. When it is, add it to /public and enable this
-            as a link using `${process.env.NEXT_PUBLIC_BASE_PATH}/resume.pdf`. */}
-        <Button size="lg" variant="outline" disabled title="Resume PDF coming soon">
-          Resume (coming soon)
+        <Button asChild size="lg" variant="outline" className="px-6">
+          <a href={RESUME_PDF_HREF} target="_blank" rel="noopener noreferrer">
+            Resume
+            <span className="sr-only"> (PDF, opens in a new tab)</span>
+          </a>
         </Button>
       </div>
     </section>
